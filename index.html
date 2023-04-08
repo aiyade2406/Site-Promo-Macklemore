@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Macklemore Promotion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Macklemore Promotion</title>
+    <meta name="Keywords" content="Macklemore,Album,Ben,Date,Tourner,Concert,tracklist.">
+    <meta name="Subject" content="Album Macklemore">
+    <meta name="Geography" content="France">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<script type="module" defer>
+    // Import the functions you need from the SDKs you need
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.0/firebase-firestore.js";
+    import { addDoc, collection,getDocs ,getFirestore,deleteDoc,updateDoc} from "https://www.gstatic.com/firebasejs/9.19.0/firebase-firestore.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.0/firebase-app.js";
+
+    
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDBc0oQnt4rXg7oBrLEHPU3O3sphaWZzow",
+      authDomain: "lab-201-49c9f.firebaseapp.com",
+      databaseURL: "https://lab-201-49c9f-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "lab-201-49c9f",
+      storageBucket: "lab-201-49c9f.appspot.com",
+      messagingSenderId: "1042016748892",
+      appId: "1:1042016748892:web:ab3fc23d76ccf8f67a2d99",
+      measurementId: "G-G7QWWZKJZK"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+  
+    const querySnapshot = await getDocs(collection(db, "tournée"));
+        const dates = querySnapshot.docs.map(doc => doc.data().date);
+        const villes = querySnapshot.docs.map(doc => doc.data().ville);
+        const salles = querySnapshot.docs.map(doc => doc.data().Salle_concert);
+        const horaires = querySnapshot.docs.map(doc => doc.data().horaire);
+
+console.log(dates)
+console.log(villes)
+console.log(horaires)
+console.log(salles)
+
+let sous_date = document.querySelector(".sous_date");
+let sous_ville = document.querySelector(".sous_ville");
+let sous_salles = document.querySelector(".sous_salles");
+let sous_horaire = document.querySelector(".sous_horaire");
+const liste_dates = dates.map((dat) => `<li>${dat}</li>`);
+const liste_villes = villes.map((ville) => `<li>${ville}</li>`);
+const liste_salles = salles.map((salle) => `<li>${salle}</li>`);
+const liste_horaires = horaires.map((horair) => `<li>${horair}</li>`);
+sous_date.innerHTML = liste_dates.join("");
+sous_ville.innerHTML = liste_villes.join("");
+sous_salles.innerHTML = liste_salles.join("");
+sous_horaire.innerHTML = liste_horaires.join("");
+  </script>
+
+
+<script src="js/app.js" defer></script>
+
+
+</head>
+<body>
+	<div class="contain">
+		<div class="explication">
+			<p>
+				Bienvenue sur un site de promotion de l'album de Macklemore
+			</p>
+			<span class="croix_pop_up">X</span>
+		</div>
+		<div class="pop">
+			<span>Pochette</span>
+			<div class="sous_pop"></div>
+		</div>
+		<div class="pop2">
+			<span>Calendrier</span>
+			<div class="sous_pop"></div>
+		</div>
+		<div class="pop3">
+			<div class="sous_pop"></div>
+		</div>
+		<div class="pop4">
+			<div class="sous_pop"></div>
+		</div>
+		<div class="pop5">
+			<div class="sous_pop"></div>
+		</div>
+		<div class="popswitch">
+			<div class="sousswitch"></div>
+		</div>
+		<nav>
+			<h1 class="identiter">Macklemore</h1>
+			<h1 class="song">
+				Musique
+				<div class="disque">
+					<div></div>
+				</div>
+			</h1>
+			<ul class="liste_nav">
+				<li class="album">Ben</li>
+				<li class="disco">Discographie</li>
+				<li class="liste_tourner">Tournée</li>
+				<li class="portrait">Portrait</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="listing_album">
+		<hgroup>
+			<h1>Maniac</h1>
+			<h1>Faithful</h1>
+			<h1>Day you die</h1>
+			<h1>Tail Light</h1>
+			<h1>1994</h1>
+			<h1>Heroes</h1>
+			<h1>I Know</h1>
+			<h1>Sorry</h1>
+			<h1>Lost/Sun Come Up</h1>
+			<h1>I Need</h1>
+			<h1>Chant</h1>
+			<h1>Tears</h1>
+			<h1>Grime</h1>
+			<h1>No Bad Days</h1>
+			<h1>God's Will</h1>
+		</hgroup>
+		<figure class="albumben"></figure>
+	</div>
+	<div class="discographie">
+		<div class="containdisque">
+			<img src="img/album1.jpg" class="album1">
+			<img src="img/album2.jpg" class="album2">
+			<img src="img/album3.jpg" class="album3">
+			<img src="img/album4.png" class="album4">
+			<img src="img/album5.png" class="album5">
+			<img src="img/album6.png" class="album6">
+			<img src="img/album7.webp" class="album7">
+		</div>
+	</div>
+	<div class="musique">
+		<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/3JhNCzhSMTxs9WLGJJxWOY?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+	</div>
+	<div class="biographie">
+		<h1>Biographie</h1>
+		<br>
+		<p>
+			Macklemore est un rappeur américain né en 1983 à Seattle. Il est connu pour son engagement dans des sujets sociaux tels que la drogue, l'homophobie et la pauvreté. Il a remporté plusieurs Grammy Awards, notamment pour son album "The Heist" en 2014. Il est également un artiste indépendant et fervent défenseur des droits des LGBT.Il est marié à Tricia Davis et a deux enfants.
+		</p>
+	</div>
+	
+		<div class="calendrier">
+			<div class="zone_calender">
+				<ul>
+					<li class="date_calender">Date</li>
+					<li class="ville_calender">Ville</li>
+					<li class="salle_calender">Salle</li>
+					<li class="horaire_calender">Horaire</li>
+				</ul>
+			</div>
+			<div class="zone_calendrier">
+				<div className="zone_date">
+					<ul class="sous_date"></ul>
+				</div>
+				<div className="zone_ville">
+					<ul class="sous_ville"></ul>
+				</div>
+				<div className="zone_salles">
+					<ul class="sous_salles"></ul>
+				</div>
+				<div className="horaire">
+					<ul class="sous_horaire"></ul>
+				</div>
+			
+			</div>
+			<button class="reserver"><a href="https://www.ticketmaster.ie/macklemore-tickets/artist/5238195?clickId=Tm1SsrVTAxyNWnLXwE0-AQ8VUkATUE1pHXm-1U0&irgwc=1&utm_source=219208-Bandsintown&utm_medium=affiliate&utm_campaign=219208&ircid=7512&camefrom=CFC_BUYAT_219208">Reserver</a></button>
+	</div>
+	<footer>
+		<p>
+			Ce site est destiné à des fins promotionnelles uniquement et n'a aucune affiliation avec Macklemore lui-même ou son équipe de gestion.
+		</p>
+	</footer>
+</body>
+</html>
